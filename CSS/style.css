@@ -1,0 +1,641 @@
+:root{
+    --bg-principal: #0B0B0F; /* Negro Profundo*/
+    --bg-secundario: #161622; /*Gris oscuro / Purpura sutil*/
+    --color-rojo: #E50914: /*ROJO VIBRANTE*/
+    --color-purpura: #8a2be2;
+    --texto-blanco: #ffffff;
+    --texto-gris: #b3b3b3;
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/*RESET BASICO PARA LIMPIAR LOS MARGENES */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--bg-principal);
+    color: var(--texto-blanco);
+    font-family: var(--fuente-principal);
+    line-height: 1.6;
+}
+/*Ejemplo de degradado */
+.text-gradient{
+    background: linear-gradient(135deg, var(--color-rojo), var(--color-purpura));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+/*1. MENÚ DE NAVEGACIÓN (Navbar)*/
+header{
+    background-color: rgba(11,11,15,0.95);
+    position:sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+}
+.logo a{
+    color: var(--texto-blanco);
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+.logo a span{
+    color:var(--color-rojo);
+}
+.nav-links{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+.nav-links a{
+    color: var(--texto-gris);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+/*EFECTOS HOVER Y PAGINA ACTIVA */
+.nav-links a:hover,
+.nav-links a.active{
+    color: var(--color-purpura);
+}
+/* ----------------
+2- SECCIÓN DE PRESENTACIÓN (HERO)
+----------------- */
+
+.hero-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 84px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem; 
+}
+.hero-container h1{
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+.hero-container p{
+    color: var(--texto-gris);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+}
+.hero-subtitle{
+    color: var(--color-rojo);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+.hero-button{
+    display: flex;
+    gap: 1.5rem;
+}
+.btn-secondary-hero{
+    display: inline-block;
+    background-color: transparent;
+    color: var(--texto-blanco);
+    text-decoration: none;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+.btn-secondary-hero:hover {
+    border-color: var(--color-purpura);
+    color: var(--color-purpura);
+}
+/* ---------------
+3. BOTONES 
+----------------- */
+.btn-primary{
+    display: inline-block;
+    background-color: var(--color-rojo);
+    color: var(--texto-blanco);
+    text-decoration: none;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    border: 1px solid transparent;
+}
+.btn-primary:hover{
+    background-color: transparent;
+    border-color: var(--color-purpura);
+    color: var(--texto-blanco);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(138,43,226,0.4);
+}
+/* ---------------
+4- FOOTER
+----------------- */
+footer{
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--bg-secundario);
+    color: var(--texto-gris);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(229, 9,20,0.1);
+}
+/*-----------------
+5. Pagina sobre mi y skills
+-----------------*/
+.about-container{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: calc(100vh - 168px);
+}
+.about-intro h1{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+.about-intro p{
+    color: var(--texto-gris);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+}
+.skills-section{
+    margin-top: 4rem;
+}
+.skills-section h2{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.skills-subtitle{
+    color: var(--texto-gris);
+    margin-bottom: 2rem;
+}
+.skills-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+/* Tarjetas de habilidades mejoradas */
+.skill-card {
+    background-color: var(--bg-secundario);
+    padding: 2.5rem 2rem;
+    border-radius: 12px; /* Bordes un poco más suaves */
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease;
+}
+
+/* Efecto Hover con Brillo de Neón personalizado por tarjeta */
+.skill-card:auto-fit, /* Para asegurar consistencia */
+.skill-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Si la tarjeta tiene el tag púrpura, brilla en púrpura */
+.skill-card:has(.skill-icon.purpura):hover {
+    border-color: var(--color-purpura);
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.15);
+}
+
+/* Si la tarjeta tiene el tag rojo, brilla en rojo */
+.skill-card:has(.skill-icon.rojo):hover {
+    border-color: var(--color-rojo);
+    box-shadow: 0 10px 30px rgba(229, 9, 20, 0.15);
+}
+
+.skill-icon {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+}
+
+.skill-icon.purpura {
+    background-color: rgba(138, 43, 226, 0.15);
+    color: #a154f2; /* Un punto más brillante para contraste */
+}
+
+.skill-icon.rojo {
+    background-color: rgba(229, 9, 20, 0.15);
+    color: #ff4a54;
+}
+
+.skill-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--texto-blanco);
+}
+
+/* Línea divisoria decorativa */
+.skill-card ul {
+    list-style: none;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-card ul li {
+    color: var(--texto-gris);
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.8rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+/* Cambiamos el punto genérico por un tag de código HTML </> */
+.skill-card ul li::before {
+    content: "</>";
+    color: var(--color-rojo);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    transition: color 0.3s ease;
+}
+
+/* Detalle interactivo: al pasar el ratón por la tarjeta, los items se iluminan un poco */
+.skill-card:hover ul li {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.skill-card:hover ul li::before {
+    color: var(--color-purpura); /* El icono cambia de rojo a púrpura en el hover */
+}
+/* ==========================================================================
+   6. PÁGINA: PROYECTOS
+   ========================================================================== */
+/* ==========================================================================
+   6. PÁGINA: PROYECTOS (VERSION PREMIUM)
+   ========================================================================== */
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: calc(100vh - 168px);
+}
+
+.projects-header {
+    margin-bottom: 3.5rem;
+}
+
+.projects-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.projects-header p {
+    color: var(--texto-gris);
+    font-size: 1.1rem;
+    max-width: 600px;
+}
+
+/* Cuadrícula adaptable */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Tarjeta base optimizada */
+.project-card {
+    background-color: var(--bg-secundario);
+    border-radius: 12px; /* Esquinas más suaves combinando con Sobre Mí */
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-tag {
+    color: var(--texto-gris);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+}
+
+.project-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--texto-blanco);
+}
+
+.project-card p {
+    color: var(--texto-gris);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+/* Tecnologías usadas dentro del proyecto (Píldoras modernas) */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.03); /* Separador sutil */
+}
+
+.project-tech span {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+/* Botones y enlaces de proyectos */
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-project {
+    flex: 1;
+    text-align: center;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* Botón Principal (Púrpura) */
+.btn-project.primary {
+    background-color: var(--color-purpura);
+    color: var(--texto-blanco);
+    border: 1px solid transparent;
+}
+
+.btn-project.primary:hover {
+    background-color: transparent;
+    border-color: var(--color-purpura);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+}
+
+/* Botón Secundario (Gris con borde rojo al pasar el ratón) */
+.btn-project.secondary {
+    background-color: rgba(255, 255, 255, 0.02);
+    color: var(--texto-gris);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-project.secondary:hover {
+    border-color: var(--color-rojo);
+    color: var(--color-rojo);
+    background-color: rgba(229, 9, 20, 0.02);
+}
+
+/* ==========================================================================
+   EFECTOS HOVER SELECTIVOS (La magia ciberpunk)
+   ========================================================================== */
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Si la tarjeta tiene el tag de Frontend (Angular), brilla en Púrpura */
+.project-card:has(.project-tag:contains-frontend), /* Respaldo */
+.project-card:nth-child(1):hover {
+    border-color: var(--color-purpura);
+    box-shadow: 0 15px 35px rgba(138, 43, 226, 0.12);
+}
+
+.project-card:nth-child(1):hover .project-tag {
+    color: var(--color-purpura);
+}
+
+.project-card:nth-child(1):hover .project-tech span {
+    border-color: rgba(138, 43, 226, 0.3);
+    color: var(--color-purpura);
+    background-color: rgba(138, 43, 226, 0.05);
+}
+
+/* Si la tarjeta tiene el tag de Backend (Node), brilla en Rojo */
+.project-card:nth-child(2):hover {
+    border-color: var(--color-rojo);
+    box-shadow: 0 15px 35px rgba(229, 9, 20, 0.12);
+}
+
+.project-card:nth-child(2):hover .project-tag {
+    color: var(--color-rojo);
+}
+
+.project-card:nth-child(2):hover .project-tech span {
+    border-color: rgba(229, 9, 20, 0.3);
+    color: var(--color-rojo);
+    background-color: rgba(229, 9, 20, 0.05);
+}
+/* ==========================================================================
+   7. PÁGINA: CONTACTO
+   ========================================================================== */
+/* ==========================================================================
+   7. PÁGINA: CONTACTO (VERSION PREMIUM)
+   ========================================================================== */
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: calc(100vh - 168px);
+}
+
+.contact-header {
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.contact-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-header p {
+    color: var(--texto-gris);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Dos columnas: Info a la izquierda, Formulario a la derecha */
+.contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 4rem;
+    align-items: start;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Una pequeña línea decorativa debajo del título de info */
+.contact-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-rojo), var(--color-purpura));
+    border-radius: 2px;
+}
+
+.contact-info p {
+    color: var(--texto-gris);
+    line-height: 1.8;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.contact-details p {
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+    color: var(--texto-blanco);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* Botones de Redes Sociales Estilizados */
+.social-links {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+}
+
+.social-btn {
+    padding: 0.6rem 1.8rem;
+    border: 1px solid rgba(138, 43, 226, 0.4);
+    color: var(--texto-blanco);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    background-color: rgba(138, 43, 226, 0.02);
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: var(--color-purpura);
+    border-color: var(--color-purpura);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Tarjeta del Formulario */
+.contact-form {
+    background-color: var(--bg-secundario);
+    padding: 3rem 2.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Al pasar el ratón por el formulario de contacto, se ilumina sutilmente */
+.contact-form:hover {
+    border-color: rgba(229, 9, 20, 0.15);
+    box-shadow: 0 15px 35px rgba(229, 9, 20, 0.04);
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.6rem;
+    color: var(--texto-gris);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    background-color: var(--bg-principal);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    color: var(--texto-blanco);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Efecto Foco de Neón al escribir */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-purpura);
+    background-color: rgba(138, 43, 226, 0.02);
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.15);
+}
+
+/* Botón de Enviar Mensaje */
+.btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--color-rojo), var(--color-purpura));
+    color: var(--texto-blanco);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.2);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+    filter: brightness(1.1); /* Hace el degradado un pelín más brillante */
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Mi Portafolio</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Dev<span>.</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="sobre-mi.html">Sobre Mí</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contact-container">
+        <div class="contact-header">
+            <h1 class="text-gradient">Hablemos</h1>
+            <p>¿Tienes un proyecto en mente, una propuesta de trabajo o simplemente quieres saludar? Escríbeme.</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Información de contacto</h3>
+                <p>Estoy disponible para proyectos freelance, contratos a tiempo completo o colaboraciones en proyectos de código abierto.</p>
+                
+                <div class="contact-details">
+                    <p>📍 Madrid, España</p>
+                    <p>📧 Alejadropulido2908@gmail.com</p>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" class="social-btn">GitHub</a>
+                    <a href="https://linkedin.com" target="_blank" class="social-btn">LinkedIn</a>
+                </div>
+            </div>
+
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="6" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Diseñado y desarrollado por ti</p>
+    </footer>
+
+</body>
+</html>
