@@ -1,85 +1,259 @@
-/* --- CONFIGURACIÓN DE COLORES Y TEMAS --- */
+/* ==========================================================================
+   🎨 CONFIGURACIÓN DE VARIABLES, TEMAS Y TRANSICIONES
+   ========================================================================== */
 
-/* Definición de variables CSS por defecto (Tema Azul) */
+/* Tema por Defecto: Azul (Fondo Claro) */
 :root {
-    --bg-color: #ffffff; /* Fondo claro por defecto */
-    --text-color: #333333;
+    --bg-color: #ffffff;
+    --text-color: #2d3748;
     --primary-color: #007bff; /* Azul acento */
-    --secondary-color: #f4f4f4; /* Fondos secundarios */
+    --secondary-color: #f7fafc;
     --card-bg: #ffffff;
-    --transition-speed: 0.5s; /* Velocidad de la animación de cambio */
+    --card-border: #e2e8f0;
+    --tag-bg: rgba(0, 123, 255, 0.1);
+    --btn-text: #ffffff;
+    --transition-speed: 0.4s; /* Velocidad de la animación */
 }
 
-/* Aplicación global de transiciones para un cambio suave */
+/* Transición suave aplicada a las propiedades cambiantes */
 body, header, main, footer, article, div, h1, h3, p, span, a {
     transition: background-color var(--transition-speed) ease, 
                 color var(--transition-speed) ease, 
                 border-color var(--transition-speed) ease,
+                background var(--transition-speed) ease,
                 box-shadow var(--transition-speed) ease;
 }
 
-/* --- CLASES PARA LOS TEMAS (JavaScript las añadirá al body) --- */
-
-/* Tema Rojo */
+/* --- 🔴 TEMA ROJO --- */
 body.theme-red {
     --bg-color: #fff5f5;
+    --text-color: #2d3748;
     --primary-color: #dc3545;
-}
-
-/* Tema Morado */
-body.theme-purple {
-    --bg-color: #f3e5f5;
-    --primary-color: #6f42c1;
-}
-
-/* Tema Negro (Modo Oscuro) */
-body.theme-black {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --primary-color: #f8f9fa; /* Acento claro para contraste */
-    --secondary-color: #1f1f1f;
-    --card-bg: #1e1e1e;
-}
-
-/* Tema Blanco (Reset) */
-body.theme-white {
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --primary-color: #343a40; /* Acento oscuro */
-    --secondary-color: #f8f9fa;
+    --secondary-color: #fff5f5;
     --card-bg: #ffffff;
+    --card-border: #fed7d7;
+    --tag-bg: rgba(220, 53, 69, 0.1);
+    --btn-text: #ffffff;
 }
 
-/* --- RE-APLICACIÓN DE VARIABLES EN TUS ESTILOS EXISTENTES --- */
-/* (Aquí debes buscar y reemplazar los colores 'hardcoded' por las variables) */
+/* --- 🔮 TEMA MORADO --- */
+body.theme-purple {
+    --bg-color: #faf5ff;
+    --text-color: #2d3748;
+    --primary-color: #6f42c1;
+    --secondary-color: #f3e8ff;
+    --card-bg: #ffffff;
+    --card-border: #e9d5ff;
+    --tag-bg: rgba(111, 66, 193, 0.1);
+    --btn-text: #ffffff;
+}
+
+/* --- ⚫ TEMA NEGRO (MODO OSCURO PREMIUM) --- */
+body.theme-black {
+    --bg-color: #0f172a; /* Azul noche muy oscuro/negro */
+    --text-color: #f1f5f9;
+    --primary-color: #38bdf8; /* Celeste eléctrico para que resalte en oscuro */
+    --secondary-color: #1e293b;
+    --card-bg: #1e293b;
+    --card-border: #334155;
+    --tag-bg: rgba(56, 189, 248, 0.1);
+    --btn-text: #0f172a;
+}
+
+/* --- ⚪ TEMA BLANCO MINIMALISTA --- */
+body.theme-white {
+    --bg-color: #fafafa;
+    --text-color: #1a1a1a;
+    --primary-color: #1a1a1a; /* Acento negro puro */
+    --secondary-color: #f4f4f4;
+    --card-bg: #ffffff;
+    --card-border: #e5e5e5;
+    --tag-bg: rgba(26, 26, 26, 0.05);
+    --btn-text: #ffffff;
+}
+
+/* ==========================================================================
+   🏗️ MAQUETACIÓN BASE E INTERFAZ (Tu diseño original mapeado a variables)
+   ========================================================================== */
 
 body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
-.text-gradient {
-    /* Si tienes un degradado, puedes usar la variable primary-color aquí */
-    background: linear-gradient(135deg, var(--primary-color), #6c757d);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 .logo span {
     color: var(--primary-color);
 }
 
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+/* Grid de Proyectos */
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.projects-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.text-gradient {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), #64748b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+/* Tarjetas de Proyectos */
 .project-card {
     background-color: var(--card-bg);
-    /* border u otros estilos que usen primary-color */
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.project-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.project-content {
+    padding: 2rem;
 }
 
 .project-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
     color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    background-color: var(--tag-bg);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+}
+
+.project-content h3 {
+    font-size: 1.35rem;
+    margin: 0 0 1rem 0;
+    color: var(--text-color);
+}
+
+.project-content p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+/* Tecnologías */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.project-tech span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    background-color: var(--secondary-color);
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--card-border);
+}
+
+/* Botones */
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-project {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
 }
 
 .btn-project.primary {
     background-color: var(--primary-color);
-    color: var(--bg-color); /* o blanco si el tema es oscuro */
+    color: var(--btn-text);
+}
+
+.btn-project.primary:hover {
+    opacity: 0.9;
+}
+
+.btn-project.secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--card-border);
+}
+
+.btn-project.secondary:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--card-border);
+    opacity: 0.7;
+    font-size: 0.9rem;
 }
