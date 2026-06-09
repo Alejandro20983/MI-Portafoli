@@ -1,118 +1,538 @@
 /* ==========================================================================
-   🎨 CONFIGURACIÓN DE VARIABLES Y TEMAS (SOLO COLORES)
+   🎨 1. VARIABLES Y VARIABLES DE TEMA (SOLO COLORES)
    ========================================================================== */
-
-/* Tema por Defecto: Oscuro Elegante (Tu primera imagen) */
 :root {
-    --bg-color: #0b0b0f;       /* Fondo oscuro original */
-    --text-color: #ffffff;     /* Texto blanco */
-    --primary-color: #007bff;  /* Azul acento */
-    --secondary-color: #16161a;/* Fondos secundarios oscuros */
+    /* Tema Base Oscuro (Tu primera captura) */
+    --bg-color: #0b0b0f;
+    --text-color: #ffffff;
+    --text-gray: #94a3b8;
+    --primary-color: #007bff;
+    --secondary-color: #16161a;
     --card-bg: #111115;
     --card-border: #1e1e24;
+    --input-bg: #16161a;
     --tag-bg: rgba(0, 123, 255, 0.15);
     --btn-text: #ffffff;
-    --transition-speed: 0.5s;
+    --transition-speed: 0.4s;
 }
 
-/* Aplicar la transición de color de forma segura */
-body, header, main, footer, article, div, h1, h2, h3, p, span, a, button {
-    transition: background-color var(--transition-speed) ease, 
-                color var(--transition-speed) ease, 
-                border-color var(--transition-speed) ease,
-                box-shadow var(--transition-speed) ease;
-}
-
-/* --- 🔴 TEMA ROJO --- */
+/* --- Variaciones de temas dinámicos --- */
 body.theme-red {
-    --bg-color: #fff5f5;
-    --text-color: #2d3748;
-    --primary-color: #dc3545;
-    --secondary-color: #fff5f5;
-    --card-bg: #ffffff;
-    --card-border: #fed7d7;
-    --tag-bg: rgba(220, 53, 69, 0.1);
-    --btn-text: #ffffff;
+    --bg-color: #fff5f5; --text-color: #1a202c; --text-gray: #4a5568;
+    --primary-color: #dc3545; --secondary-color: #f7fafc; --card-bg: #ffffff;
+    --card-border: #fed7d7; --input-bg: #ffffff; --tag-bg: rgba(220, 53, 69, 0.1);
 }
-
-/* --- 🔮 TEMA MORADO --- */
 body.theme-purple {
-    --bg-color: #faf5ff;
-    --text-color: #2d3748;
-    --primary-color: #6f42c1;
-    --secondary-color: #f3e8ff;
-    --card-bg: #ffffff;
-    --card-border: #e9d5ff;
-    --tag-bg: rgba(111, 66, 193, 0.1);
-    --btn-text: #ffffff;
+    --bg-color: #faf5ff; --text-color: #1a202c; --text-gray: #4a5568;
+    --primary-color: #6f42c1; --secondary-color: #f7fafc; --card-bg: #ffffff;
+    --card-border: #e9d5ff; --input-bg: #ffffff; --tag-bg: rgba(111, 66, 193, 0.1);
 }
-
-/* --- ⚫ TEMA NEGRO ABSOLUTO --- */
 body.theme-black {
-    --bg-color: #000000;
-    --text-color: #f1f5f9;
-    --primary-color: #38bdf8;
-    --secondary-color: #121212;
-    --card-bg: #121212;
-    --card-border: #222222;
-    --tag-bg: rgba(56, 189, 248, 0.1);
-    --btn-text: #0f172a;
+    --bg-color: #000000; --text-color: #f1f5f9; --text-gray: #94a3b8;
+    --primary-color: #38bdf8; --secondary-color: #0a0a0a; --card-bg: #0a0a0a;
+    --card-border: #222222; --input-bg: #121212; --tag-bg: rgba(56, 189, 248, 0.1);
 }
-
-/* --- ⚪ TEMA BLANCO MINIMALISTA --- */
 body.theme-white {
-    --bg-color: #fafafa;
-    --text-color: #1a1a1a;
-    --primary-color: #1a1a1a;
-    --secondary-color: #f4f4f4;
-    --card-bg: #ffffff;
-    --card-border: #e5e5e5;
-    --tag-bg: rgba(26, 26, 26, 0.05);
-    --btn-text: #ffffff;
+    --bg-color: #fafafa; --text-color: #1a1a1a; --text-gray: #666666;
+    --primary-color: #1a1a1a; --secondary-color: #f4f4f4; --card-bg: #ffffff;
+    --card-border: #e5e5e5; --input-bg: #ffffff; --tag-bg: rgba(26, 26, 26, 0.05);
 }
 
 /* ==========================================================================
-   🏗️ ASIGNACIÓN DE VARIABLES A TUS COMPONENTES
+   RESET GENERAL Y BASE
    ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-/* Aplicamos las variables de color globales sin romper tus estructuras */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
-/* Enlaces y textos que deben cambiar de color con los temas */
 a {
+    text-decoration: none;
     color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* ==========================================================================
+   🧱 2. COMPONENTES GLOBALES (HEADER, NAVBAR, FOOTER)
+   ========================================================================== */
+header {
+    width: 100%;
+    background-color: transparent;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .logo span {
     color: var(--primary-color);
 }
 
-.text-gradient {
-    background: linear-gradient(135deg, var(--primary-color), #64748b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
 }
 
-/* Estilos para las tarjetas de la sección de proyectos */
+.nav-links a {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+footer {
+    margin-top: auto;
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    border-top: 1px solid var(--card-border);
+}
+
+/* Clases Útiles */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color) 30%, #64748b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   🏠 3. ESTILOS DE LA PÁGINA DE INICIO (INDEX / HERO)
+   ========================================================================== */
+.hero-container {
+    max-width: 800px;
+    margin: auto auto;
+    padding: 4rem 2rem;
+    text-align: left;
+}
+
+.hero-subtitle {
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.hero-container h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.hero-container .text-gradient {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.hero-container p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text-gray);
+    margin-bottom: 2.5rem;
+    max-width: 650px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Botones del Home */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--btn-text);
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secondary-hero {
+    border: 1px solid var(--card-border);
+    background-color: transparent;
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.btn-secondary-hero:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+
+/* ==========================================================================
+   💼 4. ESTILOS DE LA PÁGINA DE PROYECTOS
+   ========================================================================== */
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.projects-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.projects-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.projects-header p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
 .project-card {
-    background-color: var(--card-bg) !important;
-    border-color: var(--card-border) !important;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
 }
 
 .project-tag {
-    color: var(--primary-color) !important;
-    background-color: var(--tag-bg) !important;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: var(--tag-bg);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 1rem;
+    width: fit-content;
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 .project-tech span {
-    background-color: var(--secondary-color) !important;
-    border-color: var(--card-border) !important;
+    font-size: 0.8rem;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--card-border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    color: var(--text-color);
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-project {
+    flex: 1;
+    text-align: center;
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 6px;
 }
 
 .btn-project.primary {
-    background-color: var(--primary-color) !important;
-    color: var(--btn-text) !important;
+    background-color: var(--primary-color);
+    color: var(--btn-text);
+}
+
+.btn-project.secondary {
+    border: 1px solid var(--card-border);
+    background-color: transparent;
+}
+
+.btn-project.secondary:hover {
+    background-color: var(--secondary-color);
+}
+
+/* ==========================================================================
+   🧑‍💻 5. ESTILOS DE LA PÁGINA SOBRE MÍ
+   ========================================================================== */
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.about-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.about-intro h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-intro p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skill-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.skill-icon {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    width: fit-content;
+    margin-bottom: 1rem;
+}
+
+.skill-icon.purpura { background-color: rgba(111, 66, 193, 0.15); color: #6f42c1; }
+body.theme-purple .skill-icon.purpura { background-color: #6f42c1; color: white; }
+
+.skill-icon.rojo { background-color: rgba(220, 53, 69, 0.15); color: #dc3545; }
+body.theme-red .skill-icon.rojo { background-color: #dc3545; color: white; }
+
+.skill-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.skill-description {
+    color: var(--text-gray) !important;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.skill-card ul {
+    list-style-position: inside;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+.skill-card li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   📞 6. ESTILOS DE LA PÁGINA DE CONTACTO
+   ========================================================================== */
+.contact-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.contact-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.contact-header p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info > p {
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.contact-details p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.social-btn {
+    border: 1px solid var(--card-border);
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.social-btn:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+
+/* Formulario */
+.contact-form {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    padding: 2.5rem;
+    border-radius: 12px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    background-color: var(--input-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--btn-text);
+    border: none;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.btn-submit:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   📱 7. RESPONSIVIDAD (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-container h1, 
+    .hero-container .text-gradient {
+        font-size: 2.3rem;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }

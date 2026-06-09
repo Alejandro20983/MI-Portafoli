@@ -1,43 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./CSS/style.css">
-    <title>Sobre Mi</title>
+    <title>Sobre Mí | Mi Portafolio</title>
 </head>
 <body>
-        <header>
-            <nav class="navbar">
-                <div class="logo">
-                    <a href="index.html">Dev<span>.</span></a>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="proyectos.html">Proyectos</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
-        </header>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Dev<span>.</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="sobre-mi.html" class="active">Sobre Mí</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <main class="about-container">
-            <section class="about-intro">
-                <h1>Sobre Mi</h1>
+    <main class="about-container">
+        <section class="about-intro">
+            <h1 class="text-gradient">Sobre Mí</h1>
+            <p>
+                Hola, soy un joven desarrollador web y diseñador de software, con una pasión por crear soluciones eficientes y aplicaciones modernas.
+            </p>
+            <p>
+                Mi enfoque va más allá de la simple codificación; me esfuerzo por comprender las necesidades de los usuarios y traducirlas en experiencias digitales reales.
+            </p>
+        </section>
 
-                <p>
-                    Hola soy un joven desarrollador web y diseñador de software, con una pasión por crear soluciones eficientes y aplicaciones modernas.
-                </p>
-
-                <p>
-                    Mi enfoque va más allá de la simple codificación; me esfuerzo por comprender las necesidades de los usuarios y traducirlas en experiencias digitales.
-                </p>
-            </section>
-
+        <section class="skills-section">
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon purpura">Frontend</div>
                     <h3>Cliente e Interfaz</h3>
-                    <p style="color: var(--texto-gris); font-size: 0.9rem; margin-bottom: 1rem;">
+                    <p class="skill-description">
                         Enfocado en la creación de aplicaciones SPA modulares, escalables y con una experiencia de usuario fluida.
                     </p>
                     <ul>
@@ -50,7 +50,7 @@
                 <div class="skill-card">
                     <div class="skill-icon rojo">Backend</div>
                     <h3>Servidor y Arquitectura</h3>
-                    <p style="color: var(--texto-gris); font-size: 0.9rem; margin-bottom: 1rem;">
+                    <p class="skill-description">
                         Diseño y desarrollo de lógica de negocio del lado del servidor robusta, eficiente y preparada para crecer.
                     </p>
                     <ul>
@@ -60,11 +60,13 @@
                     </ul>
                 </div>
             </div>
-            </section>
-        </main>
+        </section>
+    </main>
 
-        <footer>
-            <p>&copy; 2026 Diseñador por Alejandro Gonzalez</p>
-        </footer>
+    <footer>
+        <p>&copy; 2026 - Diseñado y desarrollado por Alejandro</p>
+    </footer>
+
+    <script src="./JS/theme-changer.js"></script>
 </body>
 </html>
