@@ -1,26 +1,25 @@
 /* ==========================================================================
-   🎨 CONFIGURACIÓN DE VARIABLES, TEMAS Y TRANSICIONES
+   🎨 CONFIGURACIÓN DE VARIABLES Y TEMAS (SOLO COLORES)
    ========================================================================== */
 
-/* Tema por Defecto: Azul (Fondo Claro) */
+/* Tema por Defecto: Oscuro Elegante (Tu primera imagen) */
 :root {
-    --bg-color: #ffffff;
-    --text-color: #2d3748;
-    --primary-color: #007bff; /* Azul acento */
-    --secondary-color: #f7fafc;
-    --card-bg: #ffffff;
-    --card-border: #e2e8f0;
-    --tag-bg: rgba(0, 123, 255, 0.1);
+    --bg-color: #0b0b0f;       /* Fondo oscuro original */
+    --text-color: #ffffff;     /* Texto blanco */
+    --primary-color: #007bff;  /* Azul acento */
+    --secondary-color: #16161a;/* Fondos secundarios oscuros */
+    --card-bg: #111115;
+    --card-border: #1e1e24;
+    --tag-bg: rgba(0, 123, 255, 0.15);
     --btn-text: #ffffff;
-    --transition-speed: 0.4s; /* Velocidad de la animación */
+    --transition-speed: 0.5s;
 }
 
-/* Transición suave aplicada a las propiedades cambiantes */
-body, header, main, footer, article, div, h1, h3, p, span, a {
+/* Aplicar la transición de color de forma segura */
+body, header, main, footer, article, div, h1, h2, h3, p, span, a, button {
     transition: background-color var(--transition-speed) ease, 
                 color var(--transition-speed) ease, 
                 border-color var(--transition-speed) ease,
-                background var(--transition-speed) ease,
                 box-shadow var(--transition-speed) ease;
 }
 
@@ -48,14 +47,14 @@ body.theme-purple {
     --btn-text: #ffffff;
 }
 
-/* --- ⚫ TEMA NEGRO (MODO OSCURO PREMIUM) --- */
+/* --- ⚫ TEMA NEGRO ABSOLUTO --- */
 body.theme-black {
-    --bg-color: #0f172a; /* Azul noche muy oscuro/negro */
+    --bg-color: #000000;
     --text-color: #f1f5f9;
-    --primary-color: #38bdf8; /* Celeste eléctrico para que resalte en oscuro */
-    --secondary-color: #1e293b;
-    --card-bg: #1e293b;
-    --card-border: #334155;
+    --primary-color: #38bdf8;
+    --secondary-color: #121212;
+    --card-bg: #121212;
+    --card-border: #222222;
     --tag-bg: rgba(56, 189, 248, 0.1);
     --btn-text: #0f172a;
 }
@@ -64,7 +63,7 @@ body.theme-black {
 body.theme-white {
     --bg-color: #fafafa;
     --text-color: #1a1a1a;
-    --primary-color: #1a1a1a; /* Acento negro puro */
+    --primary-color: #1a1a1a;
     --secondary-color: #f4f4f4;
     --card-bg: #ffffff;
     --card-border: #e5e5e5;
@@ -73,187 +72,47 @@ body.theme-white {
 }
 
 /* ==========================================================================
-   🏗️ MAQUETACIÓN BASE E INTERFAZ (Tu diseño original mapeado a variables)
+   🏗️ ASIGNACIÓN DE VARIABLES A TUS COMPONENTES
    ========================================================================== */
 
+/* Aplicamos las variables de color globales sin romper tus estructuras */
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    background-color: var(--card-bg);
-    border-bottom: 1px solid var(--card-border);
-}
-
-.logo a {
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: var(--text-color);
+/* Enlaces y textos que deben cambiar de color con los temas */
+a {
+    color: inherit;
 }
 
 .logo span {
     color: var(--primary-color);
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    opacity: 0.8;
-}
-
-.nav-links a:hover {
-    opacity: 1;
-    color: var(--primary-color);
-}
-
-/* Grid de Proyectos */
-.projects-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 4rem 2rem;
-}
-
-.projects-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
 .text-gradient {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
     background: linear-gradient(135deg, var(--primary-color), #64748b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-/* Tarjetas de Proyectos */
+/* Estilos para las tarjetas de la sección de proyectos */
 .project-card {
-    background-color: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-}
-
-.project-card:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-}
-
-.project-content {
-    padding: 2rem;
+    background-color: var(--card-bg) !important;
+    border-color: var(--card-border) !important;
 }
 
 .project-tag {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    background-color: var(--tag-bg);
-    padding: 0.25rem 0.75rem;
-    border-radius: 50px;
-    margin-bottom: 1rem;
-}
-
-.project-content h3 {
-    font-size: 1.35rem;
-    margin: 0 0 1rem 0;
-    color: var(--text-color);
-}
-
-.project-content p {
-    font-size: 0.95rem;
-    opacity: 0.8;
-    margin-bottom: 2rem;
-}
-
-/* Tecnologías */
-.project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
+    color: var(--primary-color) !important;
+    background-color: var(--tag-bg) !important;
 }
 
 .project-tech span {
-    font-size: 0.8rem;
-    font-weight: 500;
-    background-color: var(--secondary-color);
-    padding: 0.35rem 0.75rem;
-    border-radius: 6px;
-    border: 1px solid var(--card-border);
-}
-
-/* Botones */
-.project-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.btn-project {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border-radius: 8px;
-    text-decoration: none;
-    width: 100%;
-    text-align: center;
+    background-color: var(--secondary-color) !important;
+    border-color: var(--card-border) !important;
 }
 
 .btn-project.primary {
-    background-color: var(--primary-color);
-    color: var(--btn-text);
-}
-
-.btn-project.primary:hover {
-    opacity: 0.9;
-}
-
-.btn-project.secondary {
-    background-color: transparent;
-    color: var(--text-color);
-    border: 1px solid var(--card-border);
-}
-
-.btn-project.secondary:hover {
-    background-color: var(--secondary-color);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem;
-    margin-top: 4rem;
-    border-top: 1px solid var(--card-border);
-    opacity: 0.7;
-    font-size: 0.9rem;
+    background-color: var(--primary-color) !important;
+    color: var(--btn-text) !important;
 }
