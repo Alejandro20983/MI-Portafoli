@@ -683,6 +683,13 @@ body.theme-red .skill-icon.rojo { background-color: #dc3545; color: white; }
     animation: fadeInForm 0.4s ease-out; /* Animación de entrada suave */
 }
 
+/* 🔄 Ajuste para el nuevo logo en imagen */
+.logo-img {
+    height: 45px; /* Ajusta este valor según la altura de tu navbar */
+    width: auto;  /* Mantiene la proporción */
+    display: block;
+}
+
 /* Esta es la clase que activa JavaScript al enviar el formulario */
 .success-message.show {
     display: block; /* Se vuelve visible */
