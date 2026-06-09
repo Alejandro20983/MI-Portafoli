@@ -649,6 +649,56 @@ body.theme-red .skill-icon.rojo { background-color: #dc3545; color: white; }
     animation: blink 0.7s infinite;
     margin-left: 3px;
 }
+/* ==========================================================================
+   ✨ ANIMACIONES DE SCROLL (SCROLL REVEAL)
+   ========================================================================== */
+
+/* Estado inicial: el elemento está invisible y desplazado 30px hacia abajo */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform; /* Optimiza el rendimiento en el navegador */
+}
+
+/* Estado activo: JavaScript añadirá esta clase cuando el usuario haga scroll hasta el elemento */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🔄 ALERTA DE ENVÍO EXITOSO */
+.success-message {
+    display: none; /* Oculto por defecto */
+    background-color: rgba(46, 204, 113, 0.15); /* Fondo verde suave */
+    border: 1px solid #2ecc71; /* Borde verde brillante */
+    color: #2ecc71; /* Texto verde legible */
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    animation: fadeInForm 0.4s ease-out; /* Animación de entrada suave */
+}
+
+/* Esta es la clase que activa JavaScript al enviar el formulario */
+.success-message.show {
+    display: block; /* Se vuelve visible */
+}
+
+/* Pequeña animación para que no aparezca de golpe */
+@keyframes fadeInForm {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* Animación del parpadeo */
 @keyframes blink {

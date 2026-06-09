@@ -1,5 +1,5 @@
 // ==========================================================================
-// 📨 VALIDACIÓN INTERACTIVA DEL FORMULARIO DE CONTACTO
+// 📨 VALIDACIÓN INTERACTIVA Y ENVÍO REAL A WHATSAPP
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -52,26 +52,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 isValid = false;
             }
 
-            // 5. Si todo está perfecto, simulamos el envío interactivo
+            // 5. 🚀 ENVÍO REAL A WHATSAPP
             if (isValid) {
                 // Cambiar visualmente el botón a estado "Cargando..."
                 const originalText = btnSubmit.innerHTML;
                 btnSubmit.disabled = true;
-                btnSubmit.innerHTML = '<span>⏳ Enviando mensaje...</span>';
+                btnSubmit.innerHTML = '<span>⏳ Abriendo WhatsApp...</span>';
 
-                // Simulamos una petición de red con un retraso de 1.5 segundos
-                setTimeout(() => {
-                    // Mostrar mensaje de éxito
-                    successMsg.textContent = '¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.';
-                    successMsg.classList.add('show');
+                // 📞 SUSTITUYE ESTE NÚMERO POR EL TUYO REAL
+                // Importante: Mantén el '34' (prefijo de España) y añade tu número sin espacios
+                const telefono = "34600534823"; 
 
-                    // Resetear el formulario e inputs
-                    form.reset();
+                // Capturar los valores limpios
+                const nombre = nameInput.value.trim();
+                const email = emailInput.value.trim();
+                const mensaje = messageInput.value.trim();
 
-                    // Restaurar botón original
-                    btnSubmit.disabled = false;
-                    btnSubmit.innerHTML = originalText;
-                }, 1500);
+                // 📝 Redactar el texto codificando los espacios y saltos de línea (%0A)
+                const textoMensaje = `¡Hola Alejandro! %0A%0A` +
+                                     `Mi nombre es: *${nombre}* %0A` +
+                                     `Mi correo: *${email}* %0A%0A` +
+                                     `*Mensaje:* %0A${mensaje}`;
+
+                // Construir la URL oficial de la API de WhatsApp
+                const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefono}&text=${textoMensaje}`;
+
+                // Abrir en una nueva pestaña
+                window.open(urlWhatsApp, '_blank');
+
+                // Mostrar el mensaje de éxito en tu sitio web
+                successMsg.textContent = '¡Perfecto! Se ha preparado tu mensaje para WhatsApp.';
+                successMsg.classList.add('show');
+
+                // Resetear el formulario e inputs de la pantalla
+                form.reset();
+
+                // Restaurar botón original por si quieren enviar otro mensaje
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = originalText;
             }
         });
     }
