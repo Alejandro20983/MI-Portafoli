@@ -13,6 +13,14 @@
             <div class="logo">
                 <a href="index.html">Dev<span>.</span></a>
             </div>
+            
+            <button class="menu-toggle" aria-label="Abrir-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+
             <ul class="nav-links">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="proyectos.html" class="active">Proyectos</a></li>
@@ -29,9 +37,15 @@
             <p>Una selección de los desarrollos más recientes, aplicando código limpio y buenas prácticas.</p>
         </div>
 
+        <div class="filter-container">
+            <button class="btn-filter active" data-filter="all">Todos</button>
+            <button class="btn-filter" data-filter="frontend">Frontend</button>
+            <button class="btn-filter" data-filter="backend">Backend</button>
+        </div>
+
         <div class="projects-grid">
             
-            <article class="project-card">
+            <article class="project-card" data-category="frontend">
                 <div class="project-content">
                     <span class="project-tag">Frontend Application</span>
                     <h3>TaskFlow - Panel de Rendimiento</h3>
@@ -54,7 +68,7 @@
                 </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-category="backend">
                 <div class="project-content">
                     <span class="project-tag">Backend Architecture</span>
                     <h3>Core API - Servicio RESTful Escalable</h3>
@@ -79,7 +93,7 @@
                 </div>
             </article>
 
-            <article class="project-card">
+            <article class="project-card" data-category="fullstack">
                 <div class="project-content">
                     <span class="project-tag">Full-Stack Solution</span>
                     <h3>Plataforma de Gestión Fotográfica Parental</h3>
@@ -112,6 +126,7 @@
     </footer>
 
     <script src="./JS/theme-charger.js"></script>
-
+    <script src="./JS/menu.js"></script>
+    <script src="./JS/porfolio-filter.js"></script>
 </body>
 </html>

@@ -536,3 +536,258 @@ body.theme-red .skill-icon.rojo { background-color: #dc3545; color: white; }
         grid-template-columns: 1fr;
     }
 }
+/* ==========================================================================
+   📱 7. RESPONSIVIDAD AVANZADA (MEDIA QUERIES) - MOBILE FIRST/ADAPTIVE
+   ========================================================================== */
+
+/* 🔹 TABLETS (Pantallas menores de 968px) */
+@media (max-width: 968px) {
+    .contact-content {
+        grid-template-columns: 1fr; /* El formulario pasa abajo de la info */
+        gap: 3rem;
+    }
+    
+    .hero-container h1, 
+    .hero-container .text-gradient {
+        font-size: 3rem; /* Reducimos un poco el título principal */
+    }
+}
+
+/* 🔄 Estilos para la botonera de filtros */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.btn-filter {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-filter:hover,
+.btn-filter.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--btn-text);
+}
+
+/* 🔄 Animación de desvanecimiento para las tarjetas */
+.project-card {
+    transition: transform 0.3s ease, border-color 0.3s ease, opacity 0.4s ease, visibility 0.4s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Clase que aplicará JS para ocultar los proyectos que no coincidan */
+.project-card.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    display: none; /* Esto reajusta la cuadrícula automáticamente */
+}
+
+/* 🔄 CONTROL DE VALIDACIÓN DE FORMULARIOS */
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.8rem; /* Damos un poco más de aire para el texto de error */
+}
+
+/* Estilo para los mensajes de error en letras rojas debajo del input */
+.error-message {
+    color: #ff4a4a;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: block;
+    margin-top: 0.4rem;
+    min-height: 18px; /* Mantiene el espacio reservado para que el diseño no pegue saltos */
+    transition: all 0.3s ease;
+}
+
+/* Clase que aplicará JS al input si es inválido */
+.form-group input.invalid,
+.form-group textarea.invalid {
+    border-color: #ff4a4a;
+    background-color: rgba(255, 74, 74, 0.03);
+}
+
+/* Cartel de éxito general cuando el formulario se envía simuladamente bien */
+.success-message {
+    color: #2ecc71;
+    background-color: rgba(46, 204, 113, 0.1);
+    border: 1px solid #2ecc71;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: none; /* Oculto por defecto */
+}
+
+.success-message.show {
+    display: block;
+}
+/* 🔄 EFECTO MÁQUINA DE ESCRIBIR */
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    min-height: 40px; /* Evita que la pantalla pegue saltos mientras se borra el texto */
+    margin-bottom: 2.5rem;
+}
+
+/* Estilo para la barra del cursor */
+.hero-subtitle .cursor {
+    font-weight: bold;
+    color: var(--primary-color);
+    animation: blink 0.7s infinite;
+    margin-left: 3px;
+}
+
+/* Animación del parpadeo */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* 🔹 TELÉFONOS MÓVILES (Pantallas menores de 768px) */
+/* 🔹 TELÉFONOS MÓVILES (Pantallas menores de 768px) */
+@media (max-width: 768px) {
+    
+    /* Navbar responsivo: Logo a la izquierda y hamburguesa a la derecha */
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+    }
+
+    /* Mostrar botón hamburguesa */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 1100;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-color);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* 🚨 MENÚ OCULTO: Esto saca los links de la pantalla hacia la derecha 🚨 */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Totalmente escondido */
+        background-color: var(--card-bg);
+        border-left: 1px solid var(--card-border);
+        width: 250px;
+        height: 100vh;
+        flex-direction: column; /* Apilados verticalmente dentro del menú */
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        transition: right 0.4s ease; /* Desplazamiento suave */
+        z-index: 1050;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Clase activa que inyecta JS para mostrar los enlaces */
+    .nav-links.active {
+        right: 0; 
+    }
+
+    /* Animación del botón: Transforma las 3 rayas en una "X" */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-links a {
+        font-size: 1.1rem; /* Un pelín más grande para pulsar bien con el dedo */
+    }
+
+    /* Hero / Inicio */
+    .hero-container {
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .hero-container h1, 
+    .hero-container .text-gradient {
+        font-size: 2.2rem;
+    }
+
+    .hero-container p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .btn-primary, .btn-secondary-hero {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Cuadrícula de Proyectos y Habilidades */
+    .projects-grid, .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-card, .skill-card {
+        padding: 1.5rem;
+    }
+
+    .project-links {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    /* Páginas de cabeceras individuales */
+    .projects-header h1, .about-intro h1, .contact-header h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Formulario de Contacto */
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
+/* 🔹 PANTALLAS ULTRA PEQUEÑAS (Móviles de menos de 480px) */
+@media (max-width: 480px) {
+    .hero-container h1, 
+    .hero-container .text-gradient {
+        font-size: 1.8rem;
+    }
+    
+    .logo a {
+        font-size: 1.3rem;
+    }
+}
